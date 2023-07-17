@@ -1,16 +1,39 @@
-# rick_and_morty
+# Rick and Morty app
 
-A new Flutter project.
+## 1. GitFlow
+Branches: main, dev, feature/..., bugfix/...
+Commit name structure: Description 
 
-## Getting Started
+## 2. Architecture
+Clean Architecture + BloC
+Dependency Injection: GetIt
+Domain layer: models, repositories, use-cases.
+Data layer: entities, mappers from entities to domain model, implementations of repositories and providers.
 
-This project is a starting point for a Flutter application.
+## 3. Project structure
+Modules: core, core_ui, navigation, data, domain, etc.
 
-A few resources to get you started if this is your first Flutter project:
+## 4. Code Development Rules
+Lint rules described in analysis_options.yaml
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 5. Asynchrony support
+Flutter Async
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 6. Abstractions for data sources and data access
+Providers are responsible for specific services (e.g. http provider, local provider, etc.),
+they use data layer entities. Do not have abstract base classes.
+Repositories are responsible for gathering data from providers
+and mapping it to the corresponding domain layer models. Have abstract base classes in domain layer.
+
+## 7. Approach for working with UI
+One file = one widget.
+Screen widget contains BlocProviders.
+
+## 8. Localization
+Localization is implemented using Localise service.
+
+## 9. Design system
+Fonts, colors, frequently used constant values, and icons are stored in core_ui module.
+
+## 10. Supported platforms
+Mobiles - iOS and Android
